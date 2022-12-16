@@ -41,6 +41,7 @@ async function handler(req: Request): Promise<Response> {
     
     text = text.replaceAll('file.cangku.moe', 'daili.deno.dev/cangku-file')
     text = text.replaceAll('pic.cangku.moe', 'daili.deno.dev/cangku-pic')
+    text = text.replaceAll('cangku.moe', 'daili.deno.dev')
     // console.log(text)
     // return new Response('text');
     return new Response(text, {
@@ -57,6 +58,8 @@ async function handler(req: Request): Promise<Response> {
     // console.log(await res.text())
     let text = await res.text()
     text = text.replace('https://cangku.moe/api', '/api')
+    text = text.replaceAll('file.cangku.moe', 'daili.deno.dev/cangku-file')
+    text = text.replaceAll('pic.cangku.moe', 'daili.deno.dev/cangku-pic')
     return new Response(text, {
       status: res.status,
       headers: res.headers,
