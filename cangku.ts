@@ -48,9 +48,7 @@ async function handler(req: Request): Promise<Response> {
       headers: res.headers,
     });
   }
-  
-  if (pathname == '/login' || pathname == '/' ) {
-    let res = await fetch('https://cangku.moe/login', {
+  let res = await fetch(url.href, {
       headers: req.headers,
       method: req.method,
       body: req.body,
@@ -63,6 +61,8 @@ async function handler(req: Request): Promise<Response> {
       status: res.status,
       headers: res.headers,
     });
+  if (pathname == '/login' || pathname == '/' ) {
+    
   } else {
     return await fetch(url.href, {
       headers: req.headers,
